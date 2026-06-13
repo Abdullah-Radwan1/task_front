@@ -4,8 +4,9 @@ import Auth from './components/Auth';
 import Feed from './components/Feed';
 import './App.css';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log(API_BASE_URL)
 export default function App() {
   const [user, setUser] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
