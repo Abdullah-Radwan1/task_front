@@ -371,7 +371,7 @@ export default function Feed({ user, apiBaseUrl }) {
             {post.image && (
               <div className="post-media">
                 <img
-                  src={`http://localhost:5000/uploads/posts/${post.image}`}
+                  src={`${apiBaseUrl}/uploads/posts/${post.image}`}
                   alt={post.title}
                   className="post-media-image"
                   onError={(e) => { e.target.style.display = 'none'; }}
