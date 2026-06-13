@@ -15,6 +15,8 @@ import {
 const POSTS_PER_PAGE = 5;
 
 export default function Feed({ user, apiBaseUrl }) {
+  // Static files are served at the root origin, not under the /v1 API prefix
+  const baseOrigin = apiBaseUrl.replace(/\/v1$/, '');
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -371,7 +373,7 @@ export default function Feed({ user, apiBaseUrl }) {
             {post.image && (
               <div className="post-media">
                 <img
-                  src={`${apiBaseUrl}/uploads/posts/${post.image}`}
+                  src={`${baseOrigin}/uploads/posts/${post.image}`}
                   alt={post.title}
                   className="post-media-image"
                   onError={(e) => { e.target.style.display = 'none'; }}
